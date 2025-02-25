@@ -61,7 +61,7 @@ for epoch in range(num_epochs):
         # denoise
         pred_noise = model(x_t, t, partial_seq=partial_seq)
 
-        loss = loss_fn(pred_noise, noise)
+        loss = loss_fn(pred_denoised, full_seq)
         loss.backward()
         optimizer.step()
 
